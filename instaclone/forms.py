@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 from django.template import loader
 from django.urls.base import reverse
 
-from instaclone.views import user_profile
+
 
 from .models import Post, Profile
 
@@ -50,7 +50,7 @@ def add_post(request):
 
 def edit_profile(request, username):
     template = loader.get_template('insta/edit_profile.html')
-    user = user_profile.objects.get(username=request.user.username)
+    user = Profile.objects.get(username=request.user.username)
     profile = Profile.objects.get(user=request.user)
 
     if request.method == 'POST':
