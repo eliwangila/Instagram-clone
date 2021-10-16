@@ -5,6 +5,8 @@ from django.shortcuts import redirect
 from django.template import loader
 from django.urls.base import reverse
 
+from instaclone.views import user_profile
+
 from .models import Post, Profile
 
 
@@ -43,4 +45,33 @@ def add_post(request):
         pass
 
     context = {'form': form ,'profile':profile}
+    return HttpResponse(template.render(context, request))
+
+
+def edit_profile(request, username):
+    template = loader.get_template('insta/edit_profile.html')
+    user = user_profile.objects.get(username=request.user.username)
+    profile = Profile.objects.get(user=request.user)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            user.username = form.cleaned_data['username']
+            user.first_name = form.cleaned_data['first_name']
+            user.save()
+            profile.biography = form.cleaned_data['biography']
+            profile.profile_pic = form.cleaned_data['profile_pic']
+            profile.phone_number = form.cleaned_data['phone_number']
+            profile.save()
+            return redirect(reverse('home'))
+    else:
+
+        form = ProfileForm(initial={'username': username,
+                                    'first_name': user.first_name,
+                                    'last_name': user.last_name,
+                                    'phone_number': profile.phone_number,
+                                    # 'profile_pic': profile.profile_pic.url,
+                                    'biography': profile.biography})
+
+    context = {'form': form, 'user': user, 'profile':profile}
     return HttpResponse(template.render(context, request))
