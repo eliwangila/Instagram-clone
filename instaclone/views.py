@@ -21,3 +21,18 @@ def home(request):
     comments = Comment.objects.all()
     context = {'posts': posts, 'profile': profile, 'comments': comments}
     return HttpResponse(template.render(context, request))
+
+def login_user(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return HttpResponse("user logged in ")
+    else:
+        return HttpResponse("user ot logged in ")
+
+
+def signup(request):
+    pass
+
