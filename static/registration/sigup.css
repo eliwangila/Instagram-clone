@@ -30,7 +30,7 @@
     margin-bottom: 5px;
   }
   
-  /* .header img {
+  .header img {
     height: 50px;
     width: 175px;
     margin: auto;
@@ -38,7 +38,7 @@
     left: 40px;
   }
   
-  #id_password,#id_username {
+  /* .input-fields{
     width: 100%;
     margin-bottom: 5px;
     padding: 8px 12px;
@@ -71,7 +71,6 @@
     font-weight: bold;
     cursor: pointer;
     border-radius: 3px;
-    margin-top: 20px;
   }
   
   .sub-content {
@@ -103,6 +102,6 @@
   
   input:focus {
       background-color: yellow;
-  }
-   
+  } */
+  
   
