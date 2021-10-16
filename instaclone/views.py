@@ -36,3 +36,11 @@ def login_user(request):
 def signup(request):
     pass
 
+
+def user_profile(request, username):
+    template = loader.get_template('insta/profile.html')
+    profile = Profile.objects.get(user=request.user)
+    posts = Post.objects.filter(author__user__username=request.user.username)
+    # posts = Post.objects.all()
+    context = {'profile': profile, 'posts': posts}
+    return HttpResponse(template.render(context, request))
