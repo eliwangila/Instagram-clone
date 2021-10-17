@@ -14,7 +14,7 @@ class ProfileForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.label_suffix = ""  # Removes : as label suffix
+        self.label_suffix = ""  
 
     profile_pic = forms.ImageField(required=False)
     username = forms.CharField(max_length=500,required=True)
