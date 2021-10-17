@@ -101,6 +101,6 @@ body {
 }
 
 input:focus {
-    background-color: yellow;
+    background-color: rgb(241, 241, 231);
 }
 
