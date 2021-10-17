@@ -1,11 +1,3 @@
-# instagram-clone
-
-
-This project is made in :heart: with Django. As the repo name suggests that this projects aims to build the clone of Instagram application using Python and Django.
-
-
-## How to run this project in your machine
-
 ### prerequisite 
 - Python 3
 
