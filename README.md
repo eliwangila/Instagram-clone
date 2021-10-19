@@ -92,7 +92,9 @@ $python manage.py migrate
 
 * To run the application, in your terminal:
 
+```
 $ python manage.py runserver
+```
 
 ## Technology used
 
